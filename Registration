@@ -1,0 +1,17 @@
+   private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+
+ try
+        {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            Connection con=DriverManager.getConnection("jdbc:sqlserver://MANISHTHAKUR:1433;databasename=Vaccine;IntegratedSecurity=true");
+            
+           
+             Statement st=con.createStatement();
+             st.executeUpdate("insert into registration(fname,lname,ph,stat) values('"+t1.getText()+"','"+t2.getText()+"','"+t3.getText()+"','"+t4.getText()+"')");
+              con.commit();
+            jLabel1.setText("record inserted");
+        }
+          catch(Exception e )
+        {
+           System.out.println("FAILED");
+        }
